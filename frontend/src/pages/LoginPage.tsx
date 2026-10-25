@@ -34,7 +34,13 @@ export const LoginPage: React.FC = () => {
       showToast(`Welcome back, ${data.user.full_name}!`, 'success');
       navigate(from, { replace: true });
     } catch (err: any) {
-      const msg = err.response?.data?.detail || 'Invalid email or password. Please try again.';
+      console.error('Login error details:', err);
+      let msg = 'Invalid email or password. Please try again.';
+      if (!err.response) {
+        msg = `Cannot reach backend server. Please verify VITE_API_URL or that the backend is awake.`;
+      } else if (err.response?.data?.detail) {
+        msg = err.response.data.detail;
+      }
       setError(msg);
       showToast(msg, 'error');
     } finally {
@@ -98,7 +104,7 @@ export const LoginPage: React.FC = () => {
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   placeholder="name@example.com"
-                  className="w-full pl-10 pr-4 py-2.5 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 text-slate-900 dark:text-slate-100 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
+                  className="w-full pl-10 pr-4 py-3 rounded-xl border border-slate-200 dark:border-slate-800 bg-slate-50/50 dark:bg-slate-950/50 text-slate-900 dark:text-white text-sm focus:outline-none focus:ring-2 focus:ring-blue-600 dark:focus:ring-blue-500 transition-all"
                 />
               </div>
             </div>
@@ -108,7 +114,10 @@ export const LoginPage: React.FC = () => {
                 <label className="block text-xs font-bold uppercase tracking-wider text-slate-600 dark:text-slate-400">
                   Password
                 </label>
-                <Link to="/forgot-password" className="text-xs font-medium text-blue-600 dark:text-blue-400 hover:underline">
+                <Link
+                  to="/forgot-password"
+                  className="text-xs font-semibold text-blue-600 dark:text-blue-400 hover:underline"
+                >
                   Forgot password?
                 </Link>
               </div>
@@ -121,8 +130,8 @@ export const LoginPage: React.FC = () => {
                   required
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
-                  placeholder="••••••••"
-                  className="w-full pl-10 pr-10 py-2.5 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 text-slate-900 dark:text-slate-100 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
+                  placeholder="••••••••••••"
+                  className="w-full pl-10 pr-10 py-3 rounded-xl border border-slate-200 dark:border-slate-800 bg-slate-50/50 dark:bg-slate-950/50 text-slate-900 dark:text-white text-sm focus:outline-none focus:ring-2 focus:ring-blue-600 dark:focus:ring-blue-500 transition-all"
                 />
                 <button
                   type="button"
@@ -137,12 +146,11 @@ export const LoginPage: React.FC = () => {
             <button
               type="submit"
               disabled={loading}
-              className="w-full py-3 px-4 rounded-xl text-sm font-bold text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 shadow-lg shadow-blue-600/25 transition-all flex items-center justify-center gap-2 disabled:opacity-50"
+              className="w-full py-3.5 px-4 rounded-xl text-white font-bold text-sm bg-blue-600 hover:bg-blue-700 active:scale-[0.99] shadow-lg shadow-blue-600/25 transition-all flex items-center justify-center gap-2 disabled:opacity-50"
             >
               {loading ? (
                 <>
-                  <Loader2 className="w-4 h-4 animate-spin" />
-                  Signing In...
+                  <Loader2 className="w-4 h-4 animate-spin" /> Signing in...
                 </>
               ) : (
                 'Sign In'
@@ -150,23 +158,23 @@ export const LoginPage: React.FC = () => {
             </button>
           </form>
 
-          {/* Demo Login Shortcuts */}
-          <div className="mt-8 pt-6 border-t border-slate-200 dark:border-slate-800 text-center">
-            <p className="text-xs font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-wider mb-3">
+          {/* Quick Demo Logins */}
+          <div className="mt-8 pt-6 border-t border-slate-100 dark:border-slate-800 text-center">
+            <p className="text-[11px] font-bold uppercase tracking-wider text-slate-400 dark:text-slate-500 mb-3">
               Instant Demo Access
             </p>
-            <div className="grid grid-cols-2 gap-2">
+            <div className="grid grid-cols-2 gap-3">
               <button
                 type="button"
                 onClick={() => fillDemo('user')}
-                className="flex items-center justify-center gap-1.5 py-2 px-3 rounded-lg text-xs font-semibold border border-slate-200 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-800 text-slate-700 dark:text-slate-200 transition-colors"
+                className="py-2.5 px-3 rounded-xl border border-slate-200 dark:border-slate-800 hover:bg-slate-50 dark:hover:bg-slate-800 text-slate-700 dark:text-slate-300 text-xs font-semibold transition-all flex items-center justify-center gap-1.5"
               >
-                <UserCheck className="w-3.5 h-3.5 text-blue-500" /> Demo User
+                <UserCheck className="w-3.5 h-3.5 text-blue-600" /> Demo User
               </button>
               <button
                 type="button"
                 onClick={() => fillDemo('admin')}
-                className="flex items-center justify-center gap-1.5 py-2 px-3 rounded-lg text-xs font-semibold border border-slate-200 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-800 text-slate-700 dark:text-slate-200 transition-colors"
+                className="py-2.5 px-3 rounded-xl border border-slate-200 dark:border-slate-800 hover:bg-slate-50 dark:hover:bg-slate-800 text-slate-700 dark:text-slate-300 text-xs font-semibold transition-all flex items-center justify-center gap-1.5"
               >
                 <ShieldCheck className="w-3.5 h-3.5 text-amber-500" /> Demo Admin
               </button>
