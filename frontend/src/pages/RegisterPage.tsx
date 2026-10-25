@@ -53,9 +53,11 @@ export const RegisterPage: React.FC = () => {
       console.error('Registration error details:', err);
       let msg = 'Failed to create account. Please try again.';
       if (!err.response) {
-        msg = 'Cannot reach backend server. Please verify VITE_API_URL or that the backend is awake.';
+        msg = 'Cannot reach backend server. Please verify backend service is running.';
+      } else if (err.response.status === 404) {
+        msg = 'Backend endpoint not found (404). Please verify that VITE_API_URL includes your backend URL (e.g. https://...onrender.com).';
       } else if (err.response?.data?.detail) {
-        msg = err.response.data.detail;
+        msg = typeof err.response.data.detail === 'string' ? err.response.data.detail : JSON.stringify(err.response.data.detail);
       }
       setError(msg);
       showToast(msg, 'error');

@@ -1,6 +1,46 @@
 import axios from 'axios';
 
-export const API_BASE_URL = (import.meta as any).env?.VITE_API_URL || 'http://localhost:8000/api';
+declare global {
+  interface Window {
+    __ENV__?: {
+      VITE_API_URL?: string;
+    };
+  }
+}
+
+// Resilient API base URL resolution:
+// 1. Checks window.__ENV__ (injected dynamically at container start)
+// 2. Checks build-time import.meta.env.VITE_API_URL
+// 3. Defaults to localhost for dev or relative /api
+function getBaseUrl(): string {
+  let url =
+    (typeof window !== 'undefined' && window.__ENV__ && window.__ENV__.VITE_API_URL) ||
+    (import.meta as any).env?.VITE_API_URL ||
+    '';
+
+  url = url.trim();
+
+  // If no URL configured:
+  if (!url) {
+    if (typeof window !== 'undefined' && (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1')) {
+      return 'http://localhost:8000/api';
+    }
+    return '/api';
+  }
+
+  // Remove trailing slashes
+  url = url.replace(/\/+$/, '');
+
+  // If URL doesn't end with /api, append it automatically
+  if (!url.endsWith('/api')) {
+    url = `${url}/api`;
+  }
+
+  return url;
+}
+
+export const API_BASE_URL = getBaseUrl();
+console.log('[CareerAI] Configured Backend Base URL:', API_BASE_URL);
 
 const api = axios.create({
   baseURL: API_BASE_URL,

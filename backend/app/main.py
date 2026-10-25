@@ -70,15 +70,14 @@ app.add_middleware(
 # Mount uploads directory
 app.mount("/uploads", StaticFiles(directory=str(UPLOAD_DIR)), name="uploads")
 
-# Include Routers
-app.include_router(auth_router, prefix="/api")
-app.include_router(users_router, prefix="/api")
-app.include_router(resumes_router, prefix="/api")
-app.include_router(jobs_router, prefix="/api")
-app.include_router(analytics_router, prefix="/api")
-app.include_router(admin_router, prefix="/api")
+# Include Routers - mount both with /api prefix and root for maximum client compatibility
+routers = [auth_router, users_router, resumes_router, jobs_router, analytics_router, admin_router]
+for router in routers:
+    app.include_router(router, prefix="/api")
+    app.include_router(router)
 
 @app.get("/")
+@app.get("/api")
 def root():
     return {
         "service": "CareerAI API",
@@ -88,5 +87,6 @@ def root():
     }
 
 @app.get("/health")
+@app.get("/api/health")
 def health_check():
     return {"status": "healthy"}
