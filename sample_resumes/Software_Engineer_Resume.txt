@@ -1,0 +1,50 @@
+ALEX JOHNSON
+San Francisco, CA | (555) 234-5678 | alex.johnson@example.com
+LinkedIn: https://linkedin.com/in/alex-johnson-dev | GitHub: https://github.com/alexjohnson | Portfolio: https://alexjohnson.dev
+
+PROFESSIONAL SUMMARY
+Dynamic Full Stack Software Engineer with 4+ years of hands-on experience designing, developing, and deploying scalable web platforms and cloud microservices. Proven track record of reducing API response times by 40% and increasing automated test coverage to 92%. Expert in Python, FastAPI, React, TypeScript, Docker, and AWS.
+
+TECHNICAL SKILLS
+- Programming Languages: Python, TypeScript, JavaScript, SQL, HTML5, CSS3, Bash
+- Frameworks & Libraries: FastAPI, React, Next.js, Node.js, Express, Django, Tailwind CSS, Redux
+- Cloud & DevOps: Docker, Kubernetes, AWS (EC2, S3, RDS, Lambda), CI/CD, GitHub Actions, Linux
+- Databases & Storage: PostgreSQL, Redis, MongoDB, SQLAlchemy
+- Development Tools: Git, Postman, Jira, VS Code, Postman, Figma
+
+PROFESSIONAL EXPERIENCE
+
+Senior Full Stack Developer | Veloce Cloud Systems | San Francisco, CA
+June 2022 - Present
+- Architected and deployed scalable asynchronous REST APIs using FastAPI and PostgreSQL, serving 150,000+ daily active users with 99.98% uptime.
+- Led the migration of legacy monolithic frontend to modern React and TypeScript SPA with Tailwind CSS, accelerating initial page load speeds by 45%.
+- Implemented automated CI/CD deployment pipelines using GitHub Actions and Docker, reducing feature deployment cycle time from 3 days to 40 minutes.
+- Designed distributed Redis caching layers and optimized complex PostgreSQL queries, cutting database latency by 35%.
+- Mentored 4 junior engineers on software architecture, clean code standards, and test-driven development.
+
+Software Engineer | Apex Digital Solutions | Austin, TX
+August 2020 - May 2022
+- Engineered responsive client-facing dashboards using React, Redux, and RESTful APIs, improving user task completion rate by 28%.
+- Developed backend microservices using Python and Django, handling authentication, data ingestion, and webhook events.
+- Configured AWS S3 and RDS database instances with automated backup schedules and automated security auditing.
+- Collaborated with product designers in Figma to build accessible, cross-browser compatible UI components.
+
+KEY PROJECTS
+
+Distributed Task Management & AI Recommendation Engine
+- Built an end-to-end task automation platform with Python, FastAPI, React, and Scikit-learn.
+- Integrated NLP algorithms to categorize incoming user tasks and recommend priority workflows with 89% accuracy.
+- Containerized frontend and backend services using Docker and orchestrated multi-container staging with Docker Compose.
+
+Cloud Analytics Dashboard
+- Developed a real-time metrics dashboard using React, TypeScript, Recharts, and WebSockets.
+- Visualized streaming IoT telemetry data with sub-second latency for 50+ concurrent device clusters.
+
+EDUCATION
+Bachelor of Science in Computer Science (B.S.)
+University of California, Berkeley | 2016 - 2020
+CGPA: 3.8 / 4.0
+
+CERTIFICATIONS
+- AWS Certified Solutions Architect - Associate
+- Professional Scrum Master (PSM I)

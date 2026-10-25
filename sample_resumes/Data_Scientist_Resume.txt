@@ -1,0 +1,43 @@
+PRIYA SHARMA
+New York, NY | (555) 345-6789 | priya.sharma@example.com
+LinkedIn: https://linkedin.com/in/priyasharma-ai | GitHub: https://github.com/priyasharma | Portfolio: https://priyasharma.ai
+
+PROFESSIONAL SUMMARY
+Results-driven Data Scientist & Machine Learning Specialist with 3+ years of experience engineering predictive models, NLP classification pipelines, and transformer architectures. Published researcher with extensive expertise in Python, PyTorch, Scikit-learn, Pandas, and AWS MLOps. Boosted conversion forecasting accuracy by 24% and scaled recommendation models to 1M+ daily queries.
+
+TECHNICAL SKILLS
+- Machine Learning & Deep Learning: Scikit-learn, PyTorch, TensorFlow, Keras, HuggingFace, Transformers, LLM, BERT, NLP, Computer Vision
+- Programming & Data Analysis: Python, SQL, R, Pandas, NumPy, Scipy, Matplotlib, Seaborn, Feature Engineering
+- Tools & Cloud: Docker, Kubernetes, AWS (SageMaker, S3, EC2), MLflow, Git, Jupyter, Airflow, Postman
+- Databases: PostgreSQL, MongoDB, BigQuery, Snowflake
+
+PROFESSIONAL EXPERIENCE
+
+Lead Data Scientist | Cognitive Insights Analytics | New York, NY
+January 2023 - Present
+- Spearheaded development of an enterprise NLP semantic search engine using BERT transformers and vector embeddings, lifting retrieval relevance by 38%.
+- Built and tuned customer churn classification models with XGBoost and Scikit-learn, saving \.2M in annual recurring customer retention.
+- Deployed real-time inference microservices using FastAPI and Docker on AWS SageMaker with p99 latency under 45ms.
+- Mentored a team of 3 data analysts on experimental design, A/B hypothesis testing, and statistical validation.
+
+Machine Learning Engineer | DataVision Technologies | Boston, MA
+July 2021 - December 2022
+- Engineered automated data preprocessing and feature extraction pipelines using Pandas and Apache Spark, processing 25M+ rows daily.
+- Designed computer vision defect classification models using PyTorch and OpenCV, reaching 96.4% precision on industrial inspection line.
+- Configured model drift tracking using MLflow to automatically trigger retraining pipelines.
+
+EDUCATION
+Master of Science in Artificial Intelligence & Machine Learning (M.S.)
+Columbia University, New York | 2019 - 2021 | GPA: 3.9 / 4.0
+
+Bachelor of Technology in Computer Science (B.Tech)
+National Institute of Technology | 2015 - 2019
+
+PROJECTS
+Generative AI Resume & Job Matching Pipeline
+- Developed a multi-factor recommendation engine combining TF-IDF, Cosine Similarity, and skill taxonomy graphs in Python.
+- Achieved 91% candidate satisfaction in blind user evaluations.
+
+CERTIFICATIONS
+- TensorFlow Developer Certificate (Google)
+- AWS Certified Machine Learning - Specialty
